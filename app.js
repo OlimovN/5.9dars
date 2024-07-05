@@ -1,4 +1,5 @@
 const wrapper = document.getElementById("wrapper");
+const loader = document.getElementById("loader");
 
 function createCard(user) {
   return `
@@ -25,8 +26,11 @@ document.addEventListener("DOMContentLoaded", function () {
       data.forEach(function (user) {
         wrapper.innerHTML += createCard(user);
       });
+      loader.style.display = "none";
+      wrapper.style.visibility = "visible";
     })
     .catch(function (err) {
       console.log(err);
+      loader.style.display = "none";
     });
 });
